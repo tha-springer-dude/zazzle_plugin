@@ -18,7 +18,13 @@ foreach ($parsed as $item) {
 
     if ($item['type'] === 'collection_url') {
 
-        $html = zazzle_fetch_collection($item['url']);
+        //$html = zazzle_fetch_collection($item['url']);
+
+        $store = $opts['store'] ?? '';
+
+        $rss_url = "https://www.zazzle.com/" . $store . "/rss";
+
+        $html = zazzle_fetch_collection($rss_url);
 
         echo '<pre>';
         echo esc_html(substr($html, 0, 1000)); // preview only
@@ -27,7 +33,12 @@ foreach ($parsed as $item) {
 
     if ($item['type'] === 'collection_rss') {
 
-    $response = wp_remote_get($item['url']);
+    //$response = wp_remote_get($item['url']);
+
+ $store = $opts['store'] ?? '';
+    $rss_url = "https://www.zazzle.com/" . $store . "/rss";
+
+    $response = wp_remote_get($rss_url);
 
     if (!is_wp_error($response)) {
 
@@ -47,13 +58,15 @@ foreach ($parsed as $item) {
                 $media = $product->children($namespaces['media']);
                 $image = (string) $media->content->attributes()->url;
 
-                echo '<div style="margin-bottom:20px;">';
+echo '<div class="zazzle-item">';
 
-                echo '<img src="' . esc_url($image) . '" style="max-width:150px;"><br>';
-                echo '<strong>' . esc_html($title) . '</strong><br>';
-                echo '<a href="' . esc_url($link) . '" target="_blank">View product</a>';
+echo '<img src="' . esc_url($image) . '" style="max-width:150px;"><br>';
 
-                echo '</div>';
+echo '<strong>' . esc_html($title) . '</strong><br>';
+
+echo '<a href="' . esc_url($link) . '" target="_blank">View product</a>';
+
+echo '</div>';
             }
         }
     }
