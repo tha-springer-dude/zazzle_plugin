@@ -15,12 +15,37 @@ function zazzle_settings_page() {
     $opts = get_option('zazzle_settings');
     ?>
     <div class="wrap">
-        <h1>Zazzle Settings</h1>
+        <h1>Zazzle</h1>
 
+        <h2>Verwendung</h2>
+
+        <p>Shortcode zum Anzeigen von Produkten:</p>
+
+        <pre>[zazzle collection="COLLECTION_ID" layout="list"]</pre>
+        <pre>[zazzle collection="COLLECTION_ID" layout="side"]</pre>
+
+        <p><strong>Parameter:</strong></p>
+        <ul>
+            <li><strong>collection</strong> – ID der Zazzle Collection</li>
+            <li><strong>layout</strong> –
+                <ul>
+                    <li><code>list</code> = untereinander</li>
+                    <li><code>side</code> = horizontal scrollend</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Beispiel:</strong></p>
+        <pre>[zazzle collection="119919024677499506" layout="side"]</pre>
+
+        <hr>
+
+        <?php /* --- FUTURE FORM (DISABLED) --- */ ?>
+
+        <!--
         <form method="post" action="options.php">
             <?php settings_fields('zazzle_settings_group'); ?>
 
-            <!-- Store (editable) -->
             <input type="text"
                    name="zazzle_settings[store]"
                    value="<?php echo esc_attr($opts['store'] ?? ''); ?>"
@@ -28,25 +53,12 @@ function zazzle_settings_page() {
 
             <br><br>
 
-            <!-- Items (editable) -->
             <textarea name="zazzle_settings[items]" rows="5"
                       placeholder="collection:xyz"><?php echo esc_textarea($opts['items'] ?? ''); ?></textarea>
 
             <?php submit_button(); ?>
         </form>
-
-        <hr>
-
-        <!-- OUTPUT (read-only preview) -->
-        <h2>Saved Values</h2>
-
-        <p><strong>Store:</strong>
-            <?php echo esc_html($opts['store'] ?? ''); ?>
-        </p>
-
-        <p><strong>Items:</strong><br>
-            <?php echo nl2br(esc_html($opts['items'] ?? '')); ?>
-        </p>
+        -->
 
     </div>
     <?php

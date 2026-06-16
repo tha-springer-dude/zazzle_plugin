@@ -1,0 +1,44 @@
+/* ===== SIDE = horizontal scroll ===== */
+
+.zazzle.side {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+}
+
+.zazzle.side .zazzle-item {
+    min-width: 200px;
+    flex: 0 0 auto;
+}
+
+.zazzle.side img {
+    max-width: 300px;
+    display: block;
+}
+
+
+/* ===== LIST = vertical ===== */
+
+.zazzle.list {
+    display: block;
+}
+
+.zazzle-item.list {
+    margin-bottom: 20px;
+}
+
+.zazzle-item.list img {
+    max-width: 300px;
+    display: block;
+}
+
+
+.zazzle.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.zazzle.grid .zazzle-item {
+    width: 100%;
+}
