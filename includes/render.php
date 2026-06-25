@@ -35,9 +35,13 @@ function zazzle_render($atts) {
 ?>
 
 <div class="zazzle-header">
-<h2 class="zazzle-heading">Personalized Vienna Souvenirs</h2>
-<p class="zazzle-subheading">Create a unique memory with your name & year</p>
+<h2 class="zazzle-heading">
+    <?php echo function_exists('pll__') ? pll__('Personalized Vienna Souvenirs') : 'Personalized Vienna Souvenirs'; ?>
+</h2>
 
+<p class="zazzle-subheading">
+    <?php echo function_exists('pll__') ? pll__('Create a unique memory with your name & year') : 'Create a unique memory with your name & year'; ?>
+</p>
     <div class="zazzle-features">
 
         <div class="zazzle-feature">
@@ -48,8 +52,12 @@ function zazzle_render($atts) {
                 </svg>
             </div>
             <div>
-                <strong class="zazzle-title">Customizable</strong>
-                <span class="zazzle-subtitle">Add your name & year</span>
+                <strong class="zazzle-title">
+                    <?php echo function_exists('pll__') ? pll__('Customizable') : 'Customizable'; ?>
+                </strong>
+                <span class="zazzle-subtitle">
+                    <?php echo function_exists('pll__') ? pll__('Add your name & year') : 'Add your name & year'; ?>
+                </span>
             </div>
         </div>
 
@@ -67,8 +75,12 @@ function zazzle_render($atts) {
 </svg>
             </div>
             <div>
-                <strong class="zazzle-title">High Quality</strong>
-                <span class="zazzle-subtitle">Designed with love</span>
+                <strong class="zazzle-title">
+                    <?php echo function_exists('pll__') ? pll__('High Quality') : 'High Quality'; ?>
+                </strong>
+                <span class="zazzle-subtitle">
+                    <?php echo function_exists('pll__') ? pll__('Designed with love') : 'Designed with love'; ?>               
+                </span>
             </div>
         </div>
 
@@ -82,8 +94,12 @@ function zazzle_render($atts) {
                 </svg>
             </div>
             <div>
-                <strong class="zazzle-title">Worldwide Shipping</strong>
-                <span class="zazzle-subtitle">Fast delivery</span>
+                <strong class="zazzle-title">
+                    <?php echo function_exists('pll__') ? pll__('Worldwide Shipping') : 'Worldwide Shipping'; ?>
+                </strong>
+                <span class="zazzle-subtitle">
+                    <?php echo function_exists('pll__') ? pll__('Fast delivery') : 'Fast delivery'; ?>     
+                </span>
             </div>
         </div>
 
